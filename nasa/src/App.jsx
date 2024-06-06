@@ -2,10 +2,9 @@ import { useState, useEffect } from 'react';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import SideBar from './components/SideBar';
-// apikey = bqZhm7aE3IfdrFrgqiNqcKqy5VhANehkiEp4v1R8
+
 function App() {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
 
@@ -14,8 +13,7 @@ function App() {
   }
 
   useEffect(() => {
-    // const NASA_KEY = import.meta.env.VITE_NASA_API_KEY;
-    const NASA_KEY = 'bqZhm7aE3IfdrFrgqiNqcKqy5VhANehkiEp4v1R8';
+    const NASA_KEY = import.meta.env.VITE_NASA_API_KEY;
     async function fetchAPIData() {
       const url =
         'https://api.nasa.gov/planetary/apod' + `?api_key=${NASA_KEY}`;
