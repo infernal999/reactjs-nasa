@@ -95,7 +95,10 @@ footer button:hover {
   display: flex;
   flex-direction: column;
   z-index: 10;
+  
 }
+
+
 
 .bgOverlay {
   position: absolute;
@@ -117,6 +120,32 @@ footer button:hover {
   max-width: 800px;
   margin-left: auto;
   background: #030615;
+  animation: appear 0.7s ease-in;
+  
+}
+
+.toggle {
+  animation: disappear 1.5s ease-in-out;
+}
+
+@keyframes appear {
+  from {
+    transform: translateY(-30px);
+    opacity: 0.2;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes disappear {
+  10% {
+    transform: translateX(-40px)
+  }
+  100% {
+    transform:translateX(700px)
+  }
 }
 
 .sidebarContents h2 {
@@ -178,6 +207,17 @@ footer button:hover {
   }
 }
 
+.titleLink {
+  color: white;
+}
+.titleLink:hover {
+  color:rgba(255, 255, 255, 0.75)
+}
+
+.titleLink:visited {
+  color: white;
+}
+
 
 @media (min-width: 640px) {
   .sidebar {
@@ -186,6 +226,7 @@ footer button:hover {
     min-width: 30%;
     max-height: 100vh;
     box-shadow: 0 0 40px 1px #030615;
+    
   }
 
   .sidebarContents {

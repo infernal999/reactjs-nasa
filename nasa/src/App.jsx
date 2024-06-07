@@ -10,7 +10,9 @@ function App() {
 
   function handleToggleModal() {
     setShowModal(!showModal);
+    handleClassName();
   }
+
 
   useEffect(() => {
     const NASA_KEY = import.meta.env.VITE_NASA_API_KEY;
@@ -33,6 +35,7 @@ function App() {
         localStorage.setItem(localKey, JSON.stringify(apiData));
         setData(apiData);
         console.log('Fetched from API today');
+        console.log(apiData);
       } catch (err) {
         console.log(err.message);
       }
@@ -49,7 +52,10 @@ function App() {
         </div>
       )}
       {showModal && (
-        <SideBar data={data} handleToggleModal={handleToggleModal} />
+        <SideBar
+          data={data}
+          handleToggleModal={handleToggleModal}
+        />
       )}
       {data && <Footer data={data} handleToggleModal={handleToggleModal} />}
     </>
