@@ -6,13 +6,19 @@ export default function Main(props) {
   const [toggleImage, setToggleImage] = useState(false);
 
   
+
+  
   useEffect(() => {
     if (
       data.hdurl.indexOf('image') > -1
     ) {
-      setToggleImage(prev => !prev)
+      setToggleImage(true)
+    } else {
+      setToggleImage(false)
     }
-  }, [data])
+  }, [])
+
+ 
 
   return (
     <div className="imgContainer">
