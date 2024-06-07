@@ -6,16 +6,17 @@ export default function Main(props) {
   const [toggleImage, setToggleImage] = useState(false);
 
   
-  // useEffect(() => {
-  //   if (
-  //     data.hdurl.indexOf('image') > -1
-  //   ) {
-  //     setToggleImage(toggleImage => !toggleImage)
-  //   }
-  // }, [data])
+  useEffect(() => {
+    if (
+      data.hdurl.indexOf('image') > -1
+    ) {
+      setToggleImage(prev => !prev)
+    }
+  }, [data])
+
   return (
     <div className="imgContainer">
-    {toggleImage ? <IFrameVideo data={data}/> : <img className="bgImage" src={data.hdurl} alt={data.title || 'bg-img'} />}
+    {!toggleImage ? <IFrameVideo data={data}/> : <img className="bgImage" src={data.hdurl} alt={data.title || 'bg-img'} />}
       
     </div>
   );
